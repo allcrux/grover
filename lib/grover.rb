@@ -23,7 +23,9 @@ class Grover
     dependencies puppeteer: 'puppeteer'
 
     def self.launch_params
-      ENV['GROVER_NO_SANDBOX'] == 'true' ? "{args: ['--no-sandbox', '--disable-setuid-sandbox']}" : '{}'
+      ENV['GROVER_NO_SANDBOX'] == 'true' ?
+        "{args: ['--no-sandbox', '--disable-setuid-sandbox', '--font-render-hinting=medium']}" :
+        "{args: ['--font-render-hinting=medium']}"
     end
 
     method :convert_pdf, Utils.strip_heredoc(<<-FUNCTION)
